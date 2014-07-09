@@ -1,0 +1,30 @@
+{
+  "name": "CrashOS-POC",
+  "version": "0.0.0",
+  "description": "CrashOS-POC\r ===========",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cybrown/CrashOS-POC.git"
+  },
+  "author": "Cy Brown",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cybrown/CrashOS-POC/issues"
+  },
+  "homepage": "https://github.com/cybrown/CrashOS-POC",
+  "devDependencies": {
+    "gulp": "^3.8.5",
+    "gulp-browserify": "^0.5.0",
+    "gulp-clean": "^0.3.1",
+    "gulp-nodemon": "^1.0.4",
+    "reactify": "^0.13.1",
+    "run-sequence": "^0.3.6"
+  },
+  "dependencies": {
+    "express": "^4.5.1"
+  }
+}
