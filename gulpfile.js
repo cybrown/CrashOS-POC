@@ -1,17 +1,24 @@
+var fs = require('fs');
+
 var gulp = require('gulp');
 var browserify = require('gulp-browserify');
 var clean = require('gulp-clean');
 var nodemon = require('gulp-nodemon');
 var runSequence = require('run-sequence');
+var Combine = require('stream-combiner');
 
 var appsrc = 'apps-src';
 var appsrv = 'server/apps';
 var apppub = 'public/apps';
 
+var apps = fs.readdirSync(appsrc);
+
 gulp.task('apps-browserify', function () {
-    return gulp.src(appsrc + '/*/client/main.js')
-        .pipe(browserify({transform: 'reactify'}))
-        .pipe(gulp.dest(apppub + '/'));
+    return Combine.apply(this, apps.map(function (appDir) {
+        return gulp.src(appsrc + '/' + appDir + '/client/main.js')
+            .pipe(browserify({transform: 'reactify'}))
+            .pipe(gulp.dest(apppub + '/' + appDir + '/client/'));
+    }));
 });
 
 gulp.task('apps-copy-assets', function () {
